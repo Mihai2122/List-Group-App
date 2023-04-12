@@ -1,15 +1,8 @@
-import { Fragment } from "react";
-import { MouseEvent } from "react";
+import { useState } from "react";
 
 function ListGroup() {
   let items = ["Bucuresti", "Craiova", "Oradea", "Galati"];
-  //items = [];
-
-  const handlerClick = (e: MouseEvent) => console.log(e.clientY);
-  const selectedIndex = 0;
-
-  //if (items.length === 0) return <p>No Items Found</p>;
-  //const message = items.length === 0 ? <p>No Items Found</p> : null;
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
@@ -24,7 +17,7 @@ function ListGroup() {
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            onClick={handlerClick}
+            onClick={() => setSelectedIndex(index)}
           >
             {item}
           </li>
